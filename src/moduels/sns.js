@@ -4,10 +4,9 @@ import {
     SetSMSAttributesCommand,
     CheckIfPhoneNumberIsOptedOutCommand
 } from "@aws-sdk/client-sns"
-import {response} from "express";
 
-export const snsClient = new SNSClient({
-    Region: config.aws.region
+export const snsClient = config => new SNSClient({
+    Region: config.region
 })
 
 export const setSmsType = async (defaultSmsType = "Transactional") => {

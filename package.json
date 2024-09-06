@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "description": "Send Message Service",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "start": "node --watch ."
+    "start": "node ."
   },
   "private": false,
   "dependencies": {

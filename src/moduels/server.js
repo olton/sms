@@ -1,7 +1,7 @@
 import express from 'express';
 const app = express();
 import http from "http";
-import {routes} from "./routes";
+import {routes} from "./routes.js";
 
 export const create_server = async () => {
     const {host, port, ssl} = config
@@ -13,6 +13,7 @@ export const create_server = async () => {
     // Check IP
     app.use(function(req, res, next) {
         const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+        console.log(ip)
         if (globalThis.whiteList.length && globalThis.whiteList.indexOf(ip) === -1) {
             res.status(403).send('Forbidden')
             return
