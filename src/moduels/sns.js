@@ -9,7 +9,6 @@ import {createCredentialChain, fromEnv} from "@aws-sdk/credential-providers"
 let snsClient;
 
 export const create_sns_client = config => {
-    console.log(config)
     snsClient = new SNSClient({
         region: config.aws.region,
         credentials: createCredentialChain(
