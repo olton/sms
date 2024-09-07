@@ -14,9 +14,6 @@ export const create_sns_client = config => {
         region: config.aws.region,
         credentials: createCredentialChain(
             fromEnv(),
-            async () => {
-
-            },
         ),
     })
 }
