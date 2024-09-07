@@ -5,11 +5,12 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node ."
+    "start": "node --env-file=.env ."
   },
   "private": false,
   "dependencies": {
     "@aws-sdk/client-sns": "^3.645.0",
+    "@aws-sdk/credential-providers": "^3.645.0",
     "express": "^4.19.2"
   }
 }

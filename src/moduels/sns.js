@@ -4,10 +4,22 @@ import {
     SetSMSAttributesCommand,
     CheckIfPhoneNumberIsOptedOutCommand
 } from "@aws-sdk/client-sns"
+import {createCredentialChain, fromEnv} from "@aws-sdk/credential-providers"
 
-export const snsClient = config => new SNSClient({
-    Region: config.region
-})
+let snsClient;
+
+export const create_sns_client = config => {
+    console.log(config)
+    snsClient = new SNSClient({
+        region: config.aws.region,
+        credentials: createCredentialChain(
+            fromEnv(),
+            async () => {
+
+            },
+        ),
+    })
+}
 
 export const setSmsType = async (defaultSmsType = "Transactional") => {
     const response = await snsClient.send(

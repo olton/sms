@@ -1,0 +1,7 @@
+POST http://localhost:3000/sms/send
+Content-Type: application/json
+
+{
+  "phoneNumber": "+380939590564",
+  "message": "Hello from SMS!"
+}

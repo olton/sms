@@ -3,7 +3,7 @@ const app = express();
 import http from "http";
 import {routes} from "./routes.js";
 
-export const create_server = async () => {
+export const create_server = async (config) => {
     const {host, port, ssl} = config
 
     const httpServer = http.createServer({}, app)
